@@ -10,6 +10,7 @@ function Navbar() {
       <div className="navbar">
      
         <Link to="/" className="navbar-items">Pocetna  </Link> 
+        <Link to="/korpa" className="navbar-items">Korpa  </Link> 
           
 
        <Link to="/kontakt" className="navbar-items"> Kontakt </Link>

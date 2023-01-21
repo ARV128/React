@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-function PutovanjeCard({putovanje}) {
+function PutovanjeCard({putovanje,dodaj}) {
   
     return (
        
@@ -18,7 +18,7 @@ function PutovanjeCard({putovanje}) {
                 
         <div className="control">
             
-            <button className="btn">
+            <button className="btn" onClick={()=>dodaj(putovanje.id)}>
             <span className="price">{putovanje.cena} EUR</span>
         <span className="shopping-cart"><AiOutlineShoppingCart></AiOutlineShoppingCart></span>
         <span className="buy">Get now</span>

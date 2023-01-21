@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Kontakt from './Kontakt';
 import { useState } from 'react';
 import Pocetna from './Pocetna';
+import Korpa from './Korpa';
 function App() {
   const [putovanja] = useState([
     {
@@ -50,7 +51,25 @@ function App() {
     },
   ])
 
+  const [korpa, setKorpa] = useState([]);
 
+  function osvezi() {
+    let k = putovanja.filter((p) => p.korpa > 0);
+    setKorpa (k);
+    
+  }
+  function dodaj( id) {
+    
+   
+    putovanja.forEach((d) => {
+      if (d.id === id) {
+        d.korpa=1;
+        
+      }
+    });
+    osvezi();
+
+  }
 
 
 
@@ -64,7 +83,8 @@ function App() {
       <BrowserRouter  >
         <Navbar ></Navbar>
         <Routes>
-        <Route path="/" element={<Pocetna putovanja={putovanja}></Pocetna>}></Route>
+        <Route path="/" element={<Pocetna putovanja={putovanja} dodaj={dodaj}></Pocetna>}></Route>
+        <Route path="/korpa" element={<Korpa putovanja={korpa}></Korpa>}></Route>
           
           
         <Route path="/kontakt" element={<Kontakt></Kontakt>}></Route>

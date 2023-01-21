@@ -2,7 +2,7 @@ import { useState } from "react";
 import PutovanjeCard from "./PutovanjeCard";
 
  
-function Pocetna({putovanja}) {
+function Pocetna({putovanja,dodaj}) {
     const [sort, setSort] = useState(true);
     function sortAsc(){
     
@@ -24,11 +24,11 @@ function Pocetna({putovanja}) {
                     
                         putovanja
                         .sort((a, b) => a.cena < b.cena ? -1 : 1)
-                        .map((p)=><PutovanjeCard putovanje={p} key={p.id}></PutovanjeCard>)
+                        .map((p)=><PutovanjeCard putovanje={p} key={p.id} dodaj={dodaj}></PutovanjeCard>)
                     :
                         putovanja
                         .sort((a, b) => a.cena > b.cena ? -1 : 1)
-                        .map((p)=><PutovanjeCard putovanje={p} key={p.id}></PutovanjeCard>)
+                        .map((p)=><PutovanjeCard putovanje={p} key={p.id} dodaj={dodaj}></PutovanjeCard>)
                 
                 
                 }
